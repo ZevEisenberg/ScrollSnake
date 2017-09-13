@@ -25,6 +25,12 @@ class ThumbView: UIView {
         }
     }
 
+    func animateAlphaToZero() {
+        UIView.animate(withDuration: 0.3) {
+            self.alpha = 0
+        }
+    }
+
 }
 
 class ViewController: UIViewController {
@@ -64,6 +70,11 @@ class ViewController: UIViewController {
         thumbView.shapeLayer.strokeColor = UIColor.black.withAlphaComponent(0.4).cgColor
         thumbView.shapeLayer.lineWidth = 7.0 / 3.0 // 7 pixels in a 3x screenshot
         thumbView.shapeLayer.lineCap = kCALineCapRound
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        thumbView.alpha = 0
     }
 
     override func viewDidLayoutSubviews() {
@@ -113,11 +124,23 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        thumbView.alpha = 1
+
         let contentHeight = scrollView.contentSize.height
         let scrollPosition = scrollView.contentOffset.y / (contentHeight - scrollView.frame.height)
         let thumbSize = view.bounds.size.height / contentHeight
         thumbView.scrollInfo = (position: scrollPosition, thumbSize: thumbSize)
         print(thumbView.scrollInfo)
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        thumbView.animateAlphaToZero()
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            thumbView.animateAlphaToZero()
+        }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
