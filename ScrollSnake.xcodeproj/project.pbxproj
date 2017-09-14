@@ -12,6 +12,8 @@
 		CD921C9B1F6971720025B901 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD921C991F6971720025B901 /* Main.storyboard */; };
 		CD921C9D1F6971720025B901 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD921C9C1F6971720025B901 /* Assets.xcassets */; };
 		CD921CA01F6971720025B901 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD921C9E1F6971720025B901 /* LaunchScreen.storyboard */; };
+		CDAA40271F6A137A00417516 /* FloatingPoint+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAA40251F6A137A00417516 /* FloatingPoint+Scale.swift */; };
+		CDAA40281F6A137A00417516 /* Clamping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAA40261F6A137A00417516 /* Clamping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		CD921C9C1F6971720025B901 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD921C9F1F6971720025B901 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD921CA11F6971720025B901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDAA40251F6A137A00417516 /* FloatingPoint+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FloatingPoint+Scale.swift"; sourceTree = "<group>"; };
+		CDAA40261F6A137A00417516 /* Clamping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clamping.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				CD921C951F6971720025B901 /* AppDelegate.swift */,
 				CD921C971F6971720025B901 /* ViewController.swift */,
+				CDAA40261F6A137A00417516 /* Clamping.swift */,
+				CDAA40251F6A137A00417516 /* FloatingPoint+Scale.swift */,
 				CD921C991F6971720025B901 /* Main.storyboard */,
 				CD921C9C1F6971720025B901 /* Assets.xcassets */,
 				CD921C9E1F6971720025B901 /* LaunchScreen.storyboard */,
@@ -136,8 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDAA40281F6A137A00417516 /* Clamping.swift in Sources */,
 				CD921C981F6971720025B901 /* ViewController.swift in Sources */,
 				CD921C961F6971720025B901 /* AppDelegate.swift in Sources */,
+				CDAA40271F6A137A00417516 /* FloatingPoint+Scale.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
