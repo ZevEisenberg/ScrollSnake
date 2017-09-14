@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-//        tableView.showsVerticalScrollIndicator = false
+        tableView.showsVerticalScrollIndicator = false
 
         view.addSubview(tableView)
         view.addSubview(thumbView)
