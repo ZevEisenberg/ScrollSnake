@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     private let tableView = UITableView(frame: .zero, style: .plain)
     private let thumbView = ThumbView()
 
-    private let data = Array(repeating: ["snake", "pong", "breakout", "frogger"], count: 4).flatMap { $0 }
+    private let data = Array(repeating: ["snake", "pong", "breakout", "frogger"], count: 8).flatMap { $0 }
 
     override func viewDidLoad() {
         super.viewDidLoad()
