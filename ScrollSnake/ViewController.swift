@@ -20,8 +20,10 @@ class ThumbView: UIView {
 
     var scrollInfo: (position: CGFloat, thumbSize: CGFloat) = (0, 0.5) {
         didSet {
-            shapeLayer.strokeStart = scrollInfo.position - scrollInfo.thumbSize / 2
-            shapeLayer.strokeEnd = scrollInfo.position + scrollInfo.thumbSize / 2
+            let scrollRangeExcludingScrollThumb = 0...(1.0 - scrollInfo.thumbSize)
+            let scrollPosition = scrollInfo.position.scaled(from: 0...1, to: scrollRangeExcludingScrollThumb)
+            shapeLayer.strokeStart = scrollPosition
+            shapeLayer.strokeEnd = scrollPosition + scrollInfo.thumbSize
         }
     }
 
@@ -126,11 +128,16 @@ extension ViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         thumbView.alpha = 1
 
-        let contentHeight = scrollView.contentSize.height
-        let scrollPosition = scrollView.contentOffset.y / (contentHeight - scrollView.frame.height)
-        let thumbSize = view.bounds.size.height / contentHeight
-        thumbView.scrollInfo = (position: scrollPosition, thumbSize: thumbSize)
-        print(thumbView.scrollInfo)
+        let contentOffset = scrollView.contentOffset.y
+        let contentHeight = (scrollView.contentSize.height + view.safeAreaInsets.top + view.safeAreaInsets.bottom)
+        let viewHeight = scrollView.frame.height
+
+        let thumbSize = viewHeight / contentHeight
+
+        let totalDistanceToScroll = contentHeight - viewHeight
+        let fractionScrolled = contentOffset / totalDistanceToScroll
+
+        thumbView.scrollInfo = (position: fractionScrolled, thumbSize: thumbSize)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
