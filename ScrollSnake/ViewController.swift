@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         thumbView.shapeLayer.fillColor = nil
         thumbView.shapeLayer.strokeColor = UIColor.black.withAlphaComponent(0.4).cgColor
         thumbView.shapeLayer.lineWidth = 7.0 / 3.0 // 7 pixels in a 3x screenshot
-        thumbView.shapeLayer.lineCap = kCALineCapRound
+        thumbView.shapeLayer.lineCap = .round
     }
 
     override func viewDidAppear(_ animated: Bool) {

@@ -39,7 +39,7 @@ public extension FloatingPoint {
     ///   - reversed: whether the output mapping should be revserd, such that
     ///               as the input increases, the output decreases. Defaults to `false`.
     /// - Returns: The input number, scaled from the `from` range to the `to` range.
-    public func scaled(from source: ClosedRange<Self>, to destination: ClosedRange<Self>, clamped: Bool = false, reversed: Bool = false) -> Self {
+    func scaled(from source: ClosedRange<Self>, to destination: ClosedRange<Self>, clamped: Bool = false, reversed: Bool = false) -> Self {
 
         let destinationStart = reversed ? destination.upperBound : destination.lowerBound
         let destinationEnd = reversed ? destination.lowerBound : destination.upperBound
